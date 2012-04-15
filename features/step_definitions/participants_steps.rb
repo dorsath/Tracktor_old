@@ -22,3 +22,12 @@ end
 Then /^the user should be assigned to the project$/ do
   @project.users.first.should == @user
 end
+
+Given /^the user is assigned to the project$/ do
+  #simple alias to make documentation more readable
+  step "I assign the user to the project"
+end
+
+Then /^the user should be only once in the project users list$/ do
+  @project.users.count == 1
+end
