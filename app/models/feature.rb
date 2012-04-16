@@ -6,4 +6,8 @@ class Feature < ActiveRecord::Base
   def status
     STATUS[status_id]
   end
+
+  def scenarios
+    body.scan(/Scenario: (.*)/).flatten
+  end
 end

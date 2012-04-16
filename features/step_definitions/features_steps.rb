@@ -1,4 +1,4 @@
-When /^I create a feature named "([^"]*)"$/ do |feature_name|
+When /^I (create|have) a feature named "([^"]*)"$/ do |action, feature_name|
   @feature = new_feature(name: feature_name, project: @project)
 end
 
@@ -9,4 +9,14 @@ end
 
 Then /^the feature should be in the backlog$/ do
   @feature.status.should == :backlog
+end
+
+When /^I add a scenario to the feature$/ do
+  add_scenario_to_feature(@feature)
+end
+
+Then /^the feature should have a scenario$/ do
+  @feature.reload
+  @feature.scenarios.count.should == 1
+  @feature.scenarios.first.should == "Login"
 end

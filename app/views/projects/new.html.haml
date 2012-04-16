@@ -1,0 +1,7 @@
+%h1 Create Project
+
+=form_for(@project) do |p|
+  %p
+    =p.label :name
+    =p.text_field :name
+  %p=p.submit

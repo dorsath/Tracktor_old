@@ -1,0 +1,8 @@
+%h1== Project: #{@project.name}
+
+=link_to "Add User", add_user_project_path(@project)
+=link_to "New Feature", new_project_feature_path(@project)
+
+%ul
+  - @project.features.each do |feature|
+    %li=link_to feature.name, edit_project_feature_path(@project,feature)

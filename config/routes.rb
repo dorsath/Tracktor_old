@@ -1,4 +1,12 @@
 Tracker::Application.routes.draw do
+  resources :users
+  resources :projects do
+    member do
+      get  'add_user'
+      put  'adds_user'
+    end
+    resources :features
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

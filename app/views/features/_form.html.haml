@@ -1,0 +1,9 @@
+=form_for [@project,@feature] do |f|
+  %p
+    =f.label :name
+    =f.text_field :name
+  %p
+    =f.label :body
+    =f.text_area  :body
+  %p=f.submit 'Save'
+

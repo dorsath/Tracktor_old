@@ -1,0 +1,6 @@
+%h1==Add user to #{@project.name}
+=form_for @project, :url => adds_user_project_path(@project) do |f|
+  %p
+    =label_tag "add_user"
+    =collection_select("project", "users", @users, :id, :name)
+  %p=f.submit "Add User"

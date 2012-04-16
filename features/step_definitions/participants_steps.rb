@@ -16,7 +16,7 @@ Given /^I have a user$/ do
 end
 
 When /^I assign the user to the project$/ do
-  @user.assign_project(@project)
+  assign_user_to_project(@user, @project)
 end
 
 Then /^the user should be assigned to the project$/ do
