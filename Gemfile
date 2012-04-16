@@ -38,5 +38,6 @@ group :test do
   gem 'launchy'
   gem 'cucumber'
   gem 'cucumber-rails'
+  gem 'rspec-rails'
   gem 'database_cleaner'
 end

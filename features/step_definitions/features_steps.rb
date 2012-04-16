@@ -18,5 +18,5 @@ end
 Then /^the feature should have a scenario$/ do
   @feature.reload
   @feature.scenarios.count.should == 1
-  @feature.scenarios.first.should == "Login"
+  @feature.scenarios.first[:title].should == "Login"
 end
