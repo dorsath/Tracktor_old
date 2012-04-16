@@ -10,16 +10,3 @@ end
 Then /^the feature should be in the backlog$/ do
   @feature.status.should == :backlog
 end
-
-Given /^I have a feature$/ do
-  @feature = new_feature(name: "User login", project: @project)
-end
-
-When /^I add a scenario to the feature$/ do
-  @scenario = add_scenario(@feature)
-end
-
-Then /^the feature should have a scenario$/ do
-  @feature.scenarios.count.should == 1
-  @feature.scenarios.last.should == @scenario
-end
