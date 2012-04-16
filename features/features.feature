@@ -11,3 +11,8 @@ Feature: Features in projects
     When I create a feature named "User login"
     Then the project should have a feature named "User login"
     And the feature should be in the backlog
+
+  Scenario: Add scenario to a feature
+    Given I have a feature
+    When I add a scenario to the feature
+    Then the feature should have a scenario
