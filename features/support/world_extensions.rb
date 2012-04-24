@@ -12,7 +12,11 @@ module KnowsTheDomain
   end
 
   def assign_user_to_project(user, project)
-    user.assign_project(project)
+    project.assign_user(user)
+  end
+
+  def remove_user_from_project(user, project)
+    project.remove_user(user)
   end
 
   def add_scenario_to_feature(feature)
@@ -47,6 +51,14 @@ module KnowsTheUserInterface
     click_link("Add User")
     select(user.name, from: "project_users")
     click_button("Add User")
+  end
+
+  def remove_user_from_project(user, project)
+    visit project_path(project)
+    click_link('Users')
+    within(".user_#{user.id}") do
+      click_link('X')
+    end
   end
 
   def new_feature(data)

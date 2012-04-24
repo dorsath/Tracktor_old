@@ -1,0 +1,11 @@
+%h1 Users currently assigned to the project
+
+%table
+  %tr
+    %th Name
+    %th Remove
+  -@project.users.each do |user|
+    %tr{class: "user_#{user.id}"}
+      %td=user.name
+      %td=link_to "X", removes_user_from_project_path(@project,user.id), method: :put
+

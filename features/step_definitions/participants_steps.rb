@@ -31,3 +31,11 @@ end
 Then /^the user should be only once in the project users list$/ do
   @project.users.count == 1
 end
+
+When /^I remove the user from the project$/ do
+  remove_user_from_project(@user, @project)
+end
+
+Then /^the user should no longer be assigned to the project$/ do
+  @user.reload.projects.should_not include @project
+end
