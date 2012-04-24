@@ -18,7 +18,6 @@ class FeaturesController < ApplicationController
   def update
     @feature = Feature.find(params[:id])
     @feature.update_attributes(params[:feature])
-
     redirect_to project_path(@project)
   end
 end

@@ -5,5 +5,10 @@
   %p
     =f.label :body
     =f.text_area  :body
+  %p
+    -Feature::STATES.each_with_index do |state, i|
+      %span{class: "state_#{state}"}
+        =radio_button 'feature', 'state_id', i
+        =label_tag "feature_#{state}", state.to_s.gsub("_", " ")
   %p=f.submit 'Save'
 

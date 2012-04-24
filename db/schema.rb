@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20120416000641) do
   create_table "features", :force => true do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.integer  "status_id",  :default => 0
+    t.integer  "state_id",   :default => 0
     t.text     "body",       :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"

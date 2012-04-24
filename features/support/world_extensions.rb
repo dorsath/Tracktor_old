@@ -28,6 +28,12 @@ module KnowsTheDomain
     """
     feature.save
   end
+
+  def set_state feature, state
+    feature.state = state 
+    feature.save
+  end
+
 end
 
 module KnowsTheUserInterface
@@ -79,6 +85,14 @@ module KnowsTheUserInterface
         When I log in with the correct details
         Then I should be logged in
       """ )
+    click_button("Save")
+  end
+
+  def set_state feature, state
+    visit edit_project_feature_path(@project, feature.id)
+    within(".state_#{state}") do
+      choose ("feature_state_id_#{Feature::STATES.index(state)}")
+    end
     click_button("Save")
   end
 end

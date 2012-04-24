@@ -1,10 +1,14 @@
 class Feature < ActiveRecord::Base
   belongs_to :project
 
-  STATUS = [:backlog, :started]
+  STATES = [:backlog, :started, :in_progress]
 
-  def status
-    STATUS[status_id]
+  def state
+    STATES[state_id]
+  end
+
+  def state= new_state
+    self.state_id = STATES.index(new_state)
   end
 
   def scenarios

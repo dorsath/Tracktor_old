@@ -8,7 +8,7 @@ Then /^the project should have a feature named "([^"]*)"$/ do |feature_name|
 end
 
 Then /^the feature should be in the backlog$/ do
-  @feature.status.should == :backlog
+  @feature.state.should == :backlog
 end
 
 When /^I add a scenario to the feature$/ do
